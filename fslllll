@@ -1,0 +1,27 @@
+PImage img; 
+void setup( )
+{ 
+size(944,736); 
+frameRate(19);
+img=loadImage("yaya.jpg");
+}
+void draw()
+{
+  background(img); 
+  stroke(0); 
+  strokeWeight(2.87); strokeCap(PROJECT);
+  line(0,944,0,1036,4.788,0.5);
+}
+void line(float sA, float eA, float sB, float eB, float C, float D) 
+{
+  float mRange = abs(eB-sA); 
+  translate(sA, sB);
+  for (float j= -1*mRange; j< mRange; j=j+C)
+  { 
+    float x = j+(D*frameCount)%(mRange); 
+    if (x>0&&x<mRange)
+    {
+      line (x,0,x,eB-sB);
+    }
+  }
+}
