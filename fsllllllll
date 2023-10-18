@@ -1,0 +1,21 @@
+PImage img;
+int x, y;
+void setup() {
+ size(1000, 957);
+ background(255);
+ noStroke();
+ img = loadImage("a.jpg");
+ fill(0);
+ //blend(img, 0, 0, width, height, 0, 0, width, height, ADD);
+}
+ 
+void draw() {
+ frameRate(2400);
+ x = round(random(width));
+ y = round(random(height));
+ color c = img.get(x, y);
+ fill(c, 110);
+ stroke(random(0,255),150);
+ rect(x,y,random(1,10),random(1,50) );
+ rect(x, y, random(1,50),random(1,10) );
+}
