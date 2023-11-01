@@ -1,0 +1,23 @@
+import geomerative.*;
+String word = "Radiant Beam in the Night";
+void setup() {
+ size(2500, 400, P2D);
+ background(0);
+ translate(width/2, 230);
+ strokeWeight(3);
+ RG.init(this);
+ RFont font = new RFont( "chunk.ttf", 180, CENTER);
+ RCommand.setSegmentLength(15);
+ RGroup grp = font.toGroup(word);
+ grp = grp.toPolygonGroup();
+ RPoint[] pnts = grp.getPoints();
+ float noiseSeed = 1;
+ for ( int i = 0; i < pnts.length; i+=1) { 
+ float d = noise(noiseSeed);
+  fill(i*2,i/2,i*20);
+ rect(pnts[i].x, pnts[i].y, d*90, d*2);
+ stroke(i,i/2,i/10);
+ ellipse(pnts[i].x, pnts[i].y, d*20, d*20);
+ noiseSeed += 0.15;
+ }
+}
